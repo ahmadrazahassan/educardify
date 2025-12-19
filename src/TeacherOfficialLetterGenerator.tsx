@@ -85,9 +85,9 @@ export default function TeacherOfficialLetterGenerator({ hideHero = false }: { h
   const [teacherStartDate, setTeacherStartDate] = useState("August 15, 2025");
   const [teacherSalary, setTeacherSalary] = useState("85,000");
   
-  const [recipientName, setRecipientName] = useState("");
-  const [recipientTitle, setRecipientTitle] = useState("");
-  const [recipientOrganization, setRecipientOrganization] = useState("");
+  const [recipientName] = useState("");
+  const [recipientTitle] = useState("");
+  const [recipientOrganization] = useState("");
   
   const [signatoryName, setSignatoryName] = useState("Dr. Lawrence Bacow");
   const [signatoryTitle, setSignatoryTitle] = useState("President");
@@ -100,7 +100,7 @@ export default function TeacherOfficialLetterGenerator({ hideHero = false }: { h
   const [signatureSrc, setSignatureSrc] = useState("");
   
   // Design state
-  const [accentColor, setAccentColor] = useState("#1e40af");
+  const [accentColor] = useState("#1e40af");
 
   const letterRef = useRef<HTMLDivElement>(null);
 
