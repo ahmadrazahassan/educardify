@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 interface HeaderProps {
-  onNavigate?: (page: 'id-card' | 'fee-receipt' | 'class-schedule' | 'features' | 'about' | 'contact') => void;
-  currentPage?: 'id-card' | 'fee-receipt' | 'class-schedule' | 'features' | 'about' | 'contact';
+  onNavigate?: (page: 'id-card' | 'teacher-id-card' | 'teacher-letter' | 'fee-receipt' | 'class-schedule' | 'features' | 'about' | 'contact') => void;
+  currentPage?: 'id-card' | 'teacher-id-card' | 'teacher-letter' | 'fee-receipt' | 'class-schedule' | 'features' | 'about' | 'contact';
 }
 
 export default function Header({ onNavigate, currentPage }: HeaderProps) {
@@ -52,7 +52,7 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
                 <button
                   onClick={() => onNavigate?.('id-card')}
                   className={`relative px-5 py-2 text-sm font-bold rounded-full transition-all duration-300 hover:scale-105 ${
-                    currentPage === 'id-card' || currentPage === 'fee-receipt' || currentPage === 'class-schedule'
+                    currentPage === 'id-card' || currentPage === 'teacher-id-card' || currentPage === 'teacher-letter' || currentPage === 'fee-receipt' || currentPage === 'class-schedule'
                       ? 'text-blue-700 bg-blue-50/80'
                       : 'text-slate-700 hover:text-blue-700 hover:bg-blue-50/80'
                   }`}
@@ -95,30 +95,50 @@ export default function Header({ onNavigate, currentPage }: HeaderProps) {
 
           {/* Action Buttons */}
           {onNavigate && (
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               <button
                 onClick={() => onNavigate('id-card')}
-                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                className={`px-2.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
                   currentPage === 'id-card'
                     ? 'bg-blue-600 text-white shadow-sm'
                     : 'bg-white/70 text-slate-700 hover:bg-white hover:shadow-sm'
                 }`}
               >
-                ID Card
+                Student
+              </button>
+              <button
+                onClick={() => onNavigate('teacher-id-card')}
+                className={`px-2.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
+                  currentPage === 'teacher-id-card'
+                    ? 'bg-amber-600 text-white shadow-sm'
+                    : 'bg-white/70 text-slate-700 hover:bg-white hover:shadow-sm'
+                }`}
+              >
+                Teacher ID
+              </button>
+              <button
+                onClick={() => onNavigate('teacher-letter')}
+                className={`px-2.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
+                  currentPage === 'teacher-letter'
+                    ? 'bg-emerald-600 text-white shadow-sm'
+                    : 'bg-white/70 text-slate-700 hover:bg-white hover:shadow-sm'
+                }`}
+              >
+                Letter
               </button>
               <button
                 onClick={() => onNavigate('fee-receipt')}
-                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                className={`px-2.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
                   currentPage === 'fee-receipt'
                     ? 'bg-green-600 text-white shadow-sm'
                     : 'bg-white/70 text-slate-700 hover:bg-white hover:shadow-sm'
                 }`}
               >
-                Fee Receipt
+                Receipt
               </button>
               <button
                 onClick={() => onNavigate('class-schedule')}
-                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                className={`px-2.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
                   currentPage === 'class-schedule'
                     ? 'bg-purple-600 text-white shadow-sm'
                     : 'bg-white/70 text-slate-700 hover:bg-white hover:shadow-sm'
